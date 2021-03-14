@@ -3,15 +3,24 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
+		<div className="container-fluid black">
+			<div className="container">
+				<nav className="px-0 navbar navbar-light">
+					<Link to="/">
+						<img
+							src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"
+							width="40%"
+						/>
+					</Link>
+					<div className="ml-auto">
+						<Link to="/demo">
+							<button type="button" className="btn btn-secondary">
+								Notifications <span className="badge bg-warning text-dark">4</span>
+							</button>
+						</Link>
+					</div>
+				</nav>
 			</div>
-		</nav>
+		</div>
 	);
 };
