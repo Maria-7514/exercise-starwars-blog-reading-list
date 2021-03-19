@@ -1,0 +1,10 @@
+.horizontal-scroll-wrapper {
+    display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.horizontal-scroll-wrapper > div {
+  width: 400px;
+  height: auto;
+}

@@ -3,18 +3,26 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Card = props => {
+	const randomPic = Math.floor(Math.random() * 30);
+	const url = "https://picsum.photos/600/400?random=" + randomPic;
 	return (
 		<div>
-			<div className="card">
-				<img src="https://fakeimg.pl/350x200/?text=picture&font=lobster" />
+			<div className="card m-2">
+				<img src={url} />
 				<div className="card-body">
-					<h5 className="card-title">{props.title}</h5>
+					<h5 className="card-title">{props.name}</h5>
 					<p className="card-text">
-						Some quick example text to build on the card title and make up the bulk of the cards content.
+						Obi-Wan is here. The Force is with him. If you are right, he must not be allowed to escape.
+						Escape is not his plan. I must face him alone.
 					</p>
-					<a href="#" className="btn btn-primary">
-						Go somewhere
-					</a>
+					<div className="d-flex">
+						<a href="#" className="btn btn-primary">
+							Learn More!
+						</a>
+						<a href="#" className="ml-auto btn btn-warning">
+							<i className="far fa-heart" />
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -22,7 +30,7 @@ const Card = props => {
 };
 
 Card.propTypes = {
-	title: PropTypes.string
+	name: PropTypes.string
 };
 
 export default Card;

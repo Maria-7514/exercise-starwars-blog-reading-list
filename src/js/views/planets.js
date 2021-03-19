@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import Card from "../component/card";
 
-export const Planets = () => (
-	<div className="text-center mt-5">
-		<h1>Planets</h1>
-		<div className="row">
-			<div className="col">
-				<Card title="Dandoran" />
-			</div>
-			<div className="col">
-				<Card title="Utapau" />
-			</div>
-			<div className="col">
-				<Card title="Yarma" />
+export const Planets = () => {
+	const { store } = useContext(Context);
+	return (
+		<div className="mt-5">
+			<h1>Planets</h1>
+			<div className="horizontal-scroll-wrapper">
+				{store.planetas.map(item => {
+					return (
+						<div key={item.uid}>
+							<Card name={item.name} />
+						</div>
+					);
+				})}
 			</div>
 		</div>
-	</div>
-);
+	);
+};
