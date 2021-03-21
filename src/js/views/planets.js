@@ -11,7 +11,7 @@ export const Planets = () => {
 				{store.planetas.map(item => {
 					return (
 						<div key={item.uid}>
-							<Card name={item.name} />
+							<Card name={item.name} url={item.url} cardType="planet" uid={item.uid} />
 						</div>
 					);
 				})}

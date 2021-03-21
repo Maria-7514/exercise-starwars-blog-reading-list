@@ -5,18 +5,44 @@ import PropTypes from "prop-types";
 const Card = props => {
 	const [detalle, setDetalle] = useState();
 
-	useEffect(() => {
-		getDetalle();
-	}, []);
+	const getDetalle = async () => {
+		try {
+			const response = await fetch(props.url); // esperamos la respuesta del servidor.
+			const json = await response.json(); // esperamos la transformación a JSON.
+			setDetalle(json.result.properties);
+		} catch (e) {
+			// falló intentando traer los detalles.
+			console.log(e); // reportar el error.
+		}
+	};
 
-	const getDetalle = () => {
-		fetch(props.url)
-			.then(response => response.json())
-			.then(result => {
-				//console.log(result.result);
-				setDetalle(result.result.properties);
-			})
-			.catch(error => console.log("error", error));
+	useEffect(
+		() => {
+			getDetalle();
+		}, // le pasamos la constante de función getDetalle para que lo ejecute con el efecto.
+		[] // cambios en el url disparan este efecto.
+	);
+
+	const cardContents = () => {
+		if (!detalle) {
+			return <div>Loading...</div>;
+		}
+		if (props.cardType == "character") {
+			return (
+				<p className="card-text">
+					<div>Gender: {detalle.gender}</div>
+					<div>Hair Color: {detalle.hair_color}</div>
+					<div>Eye Color: {detalle.eye_color}</div>
+				</p>
+			);
+		}
+		return (
+			<p className="card-text">
+				<div>Diameter: {detalle.diameter}</div>
+				<div>Rotation Speen: {detalle.rotation_period}</div>
+				<div>Orbital Period: {detalle.orbital_period}</div>
+			</p>
+		);
 	};
 
 	const randomPic = Math.floor(Math.random() * 1000);
@@ -27,15 +53,11 @@ const Card = props => {
 				<img src={url} />
 				<div className="card-body">
 					<h5 className="card-title">{props.name}</h5>
-					<p className="card-text">
-						<p>Gender: {detalle ? detalle.gender : ""}</p>
-						<p>Hair Color: {detalle ? detalle.hair_color : ""}</p>
-						<p>Eye Color: {detalle ? detalle.eye_color : ""}</p>
-					</p>
+					{cardContents()}
 					<div className="d-flex">
-						<a href="#" className="btn btn-primary">
-							Learn More!
-						</a>
+						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
+							Learn More
+						</Link>
 						<a href="#" className="ml-auto btn btn-warning">
 							<i className="far fa-heart" />
 						</a>
@@ -48,7 +70,9 @@ const Card = props => {
 
 Card.propTypes = {
 	name: PropTypes.string,
-	url: PropTypes.string
+	url: PropTypes.string,
+	uid: PropTypes.number,
+	cardType: PropTypes.string
 };
 
 export default Card;
