@@ -12,7 +12,7 @@ export const Characters = () => {
 				{store.personajes.map(item => {
 					return (
 						<div key={item.uid}>
-							<Card name={item.name} />
+							<Card name={item.name} url={item.url} />
 						</div>
 					);
 				})}
