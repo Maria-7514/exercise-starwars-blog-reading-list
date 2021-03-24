@@ -12,12 +12,32 @@ export const Navbar = () => {
 							width="40%"
 						/>
 					</Link>
+
 					<div className="ml-auto">
-						<Link to="/demo">
-							<button type="button" className="btn btn-secondary">
+						{/* empieza drop down */}
+						<div className="btn-group">
+							<button
+								type="button"
+								className="btn btn-secondary dropdown-toggle"
+								data-toggle="dropdown"
+								data-display="static"
+								aria-haspopup="true"
+								aria-expanded="false">
 								Favorites <span className="badge bg-warning text-dark">4</span>
 							</button>
-						</Link>
+							<div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+								<button className="dropdown-item" type="button">
+									Action
+								</button>
+								<button className="dropdown-item" type="button">
+									Another action
+								</button>
+								<button className="dropdown-item" type="button">
+									Something else here
+								</button>
+							</div>
+						</div>
+						{/* termina drop dowm */}
 					</div>
 				</nav>
 			</div>
