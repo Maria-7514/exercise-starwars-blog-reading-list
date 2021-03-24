@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+// import { Context } from "../store/appContext";
 
 const Card = props => {
+	// const { store, action } = useContext(Context);
 	const [detalle, setDetalle] = useState();
 
 	const getDetalle = async () => {
@@ -54,6 +56,12 @@ const Card = props => {
 						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
 							Learn More
 						</Link>
+						{/* <a
+							href="#"
+							onClick={() => actions.addFavorites(props.name)}
+							className="ml-auto btn btn-warning">
+							<i className="far fa-heart" />
+						</a> */}
 						<a href="#" className="ml-auto btn btn-warning">
 							<i className="far fa-heart" />
 						</a>
