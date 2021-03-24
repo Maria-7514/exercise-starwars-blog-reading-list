@@ -7,8 +7,8 @@ const Card = props => {
 
 	const getDetalle = async () => {
 		try {
-			const response = await fetch(props.url); // esperamos la respuesta del servidor.
-			const json = await response.json(); // esperamos la transformación a JSON.
+			const response = await fetch(props.url); // espera la respuesta del servidor.
+			const json = await response.json(); // espera la transformación a JSON.
 			setDetalle(json.result.properties);
 		} catch (e) {
 			console.log(e);
@@ -54,7 +54,10 @@ const Card = props => {
 						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
 							Learn More
 						</Link>
-						<a href="#" className="ml-auto btn btn-warning">
+						<a
+							href="#"
+							className="ml-auto btn btn-warning"
+							onClick={() => actions.AddFavorites()}>
 							<i className="far fa-heart" />
 						</a>
 					</div>

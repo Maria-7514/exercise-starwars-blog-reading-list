@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			personajes: [],
-			planetas: []
+			planetas: [],
+			favorites: []
 		},
 		actions: {
 			getPersonajes: () => {
@@ -23,6 +24,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planetas: result.results });
 					})
 					.catch(error => console.log("error", error));
+			},
+			addFavorites: () => {
+				const store = getStore();
+				const favoritos = store.favorites;
+				setStore({ favorites: favoritos.concat(name) });
 			}
 		}
 	};
