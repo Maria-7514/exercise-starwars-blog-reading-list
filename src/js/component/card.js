@@ -54,10 +54,7 @@ const Card = props => {
 						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
 							Learn More
 						</Link>
-						<a
-							href="#"
-							className="ml-auto btn btn-warning"
-							onClick={() => actions.AddFavorites()}>
+						<a href="#" className="ml-auto btn btn-warning">
 							<i className="far fa-heart" />
 						</a>
 					</div>

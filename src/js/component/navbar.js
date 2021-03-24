@@ -26,7 +26,7 @@ export const Navbar = () => {
 								Favorites <span className="badge bg-warning text-dark">4</span>
 							</button>
 							<div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-								<button onClick={} className="dropdown-item" type="button">
+								<button className="dropdown-item" type="button">
 									Action
 								</button>
 							</div>

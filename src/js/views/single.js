@@ -29,35 +29,52 @@ export const SingleCharacter = props => {
 	);
 
 	if (!detalle) {
-		return <div>Loading please wait...</div>;
+		return <h2>Loading please wait...</h2>;
 	}
 
 	return (
 		<div className="container">
-			<h1 className="display-4">Character Single Page</h1>
-			<div className="row">
+			<div className="row my-3">
 				<div className="col">
 					<img src={urlPic} />
 				</div>
 				<div className="col">
-					<h1 className="display-4">Character Name</h1>
-					<p>
-						Togruta droopy baba kyp darth ree-yees hoojib di. Organa terrik anthos calrissian wookiee farlax
-						emtrey. Bimm aka irek moff disra. Jettster snootles muun cerean iblis.
-					</p>
-					<p>
-						Tion luminara hypori onimi raymus sullustan. Feylya su rakata falleen dorvalla. Mohc defel
-						dodonna wicket jerjerrod ikrit bando omas. Hutt fett nal skywalker emtrey kendal boba ralter.
-						Felya boz wedge jar timoliini
-					</p>
+					<h1 className="display-4">{detalle.name}</h1>
+					<p>Description</p>
+				</div>
+			</div>
+			<div className="row text-danger text-center">
+				<div className="col">
+					<h3>Name:</h3>
+					<p className="fs-2">{detalle.name}</p>
+				</div>
+				<div className="col">
+					<h3>Birth Year</h3>
+					<p>{detalle.birth_year}</p>
+				</div>
+				<div className="col">
+					<h3>Gender:</h3>
+					<p>{detalle.gender}</p>
+				</div>
+				<div className="col">
+					<h3>Height:</h3>
+					<p>{detalle.height}</p>
+				</div>
+				<div className="col">
+					<h3>Skin Color:</h3>
+					<p>{detalle.skin_color}</p>
+				</div>
+				<div className="col">
+					<h3>Eye Color:</h3>
+					<p>{detalle.eye_color}</p>
 				</div>
 			</div>
 			<div className="row">
 				<div className="col">
-					<p>{JSON.stringify({ detalle })}</p>
 					<Link to="/">
 						<span className="btn btn-primary btn-lg" href="#" role="button">
-							Back home
+							{" "}
+							Back home{" "}
 						</span>
 					</Link>
 				</div>
@@ -98,7 +115,7 @@ export const SinglePlanet = props => {
 
 	return (
 		<div className="container">
-			<div className="row mt-3">
+			<div className="row my-3">
 				<div className="col">
 					<img src={urlPic} />
 				</div>
@@ -113,32 +130,27 @@ export const SinglePlanet = props => {
 			<div className="row text-danger text-center">
 				<div className="col">
 					<h3>Name:</h3>
-					<p className="display-4">{detalle.name}</p>
+					<p className="fs-2">{detalle.name}</p>
 				</div>
 				<div className="col">
-					<p>
-						<strong>Climate:</strong> {detalle.climate}
-					</p>
+					<h3>Climate:</h3>
+					<p>{detalle.climate}</p>
 				</div>
 				<div className="col">
-					<p>
-						<strong>Population:</strong> {detalle.population}
-					</p>
+					<h3>Population:</h3>
+					<p>{detalle.population}</p>
 				</div>
 				<div className="col">
-					<p>
-						<strong>Orbital Period:</strong> {detalle.orbital_period}
-					</p>
+					<h3>Orbital Period:</h3>
+					<p>{detalle.orbital_period}</p>
 				</div>
 				<div className="col">
-					<p>
-						<strong>Rotation Period:</strong> {detalle.rotation_period}
-					</p>
+					<h3>Rotation Period:</h3>
+					<p>{detalle.rotation_period}</p>
 				</div>
 				<div className="col">
-					<p>
-						<strong>Diameter:</strong> {detalle.diameter}
-					</p>
+					<h3>Diameter:</h3>
+					<p>{detalle.diameter}</p>
 				</div>
 			</div>
 			<div className="row">
