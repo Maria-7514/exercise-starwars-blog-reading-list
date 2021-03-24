@@ -11,17 +11,13 @@ const Card = props => {
 			const json = await response.json(); // esperamos la transformación a JSON.
 			setDetalle(json.result.properties);
 		} catch (e) {
-			// falló intentando traer los detalles.
-			console.log(e); // reportar el error.
+			console.log(e);
 		}
 	};
 
-	useEffect(
-		() => {
-			getDetalle();
-		}, // le pasamos la constante de función getDetalle para que lo ejecute con el efecto.
-		[] // cambios en el url disparan este efecto.
-	);
+	useEffect(() => {
+		getDetalle();
+	}, []);
 
 	const cardContents = () => {
 		if (!detalle) {
