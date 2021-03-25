@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+	const [addFav, setAddFav] = useState("");
+	const [listFav, setListFav] = useState([]);
+	const putFav = () => {
+		if (addFav != "") {
+			setListFav([...listFav, addFav]);
+			setAddFav("");
+		} else {
+			alert("Card was already in your Favorites");
+		}
+	};
+
 	return (
 		<div className="container-fluid black">
 			<div className="container">
@@ -20,9 +31,7 @@ export const Navbar = () => {
 								type="button"
 								className="btn btn-secondary dropdown-toggle"
 								data-toggle="dropdown"
-								data-display="static"
-								aria-haspopup="true"
-								aria-expanded="false">
+								data-display="static">
 								Favorites{" "}
 								<span className="badge bg-warning text-dark">4 {/*{store.favorites.lenght}*/} </span>
 							</button>

@@ -24,6 +24,7 @@ const injectContext = PassedComponent => {
 		useEffect(() => {
 			state.actions.getPersonajes();
 			state.actions.getPlanetas();
+			state.actions.addFavorites();
 		}, []);
 
 		return (
