@@ -13,7 +13,7 @@ export const Home = () => {
 			<div className="row mt-1 d-md-block">
 				<Characters />
 			</div>
-			<div className="row my-1 d-md-block">
+			<div className="row mb-5 d-md-block">
 				<Planets />
 			</div>
 		</div>

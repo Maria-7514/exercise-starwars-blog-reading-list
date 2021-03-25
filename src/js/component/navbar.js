@@ -27,8 +27,11 @@ export const Navbar = () => {
 								<span className="badge bg-warning text-dark">4 {/*{store.favorites.lenght}*/} </span>
 							</button>
 							<div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-								<button className="dropdown-item" type="button">
-									Action
+								<button className="dropdown-item d-flex px-2" type="button">
+									<div className="mr-2">Me cago en Rigo</div>
+									<div>
+										<i className="fas fa-trash" />
+									</div>
 								</button>
 							</div>
 						</div>
