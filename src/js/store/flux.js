@@ -25,10 +25,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			},
-			addFavorites: () => {
+			addFavorite: name => {
 				const store = getStore();
-				const favoritos = store.favorites;
-				setStore({ favorites: favoritos.concat(name) });
+				const itm = store.favorites.indexOf(name);
+				if (itm == -1) setStore({ favorites: [...store.favorites, name] });
+			},
+			deleteFavorite: name => {
+				const store = getStore();
+				const favorites = store.favorites.filter(fav => fav != name);
+				setStore({ favorites });
 			}
 		}
 	};

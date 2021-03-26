@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-// import { Context } from "../store/appContext";
+import { Context } from "../store/appContext";
 
 const Card = props => {
-	// const { store, action } = useContext(Context);
-	const [detalle, setDetalle] = useState();
+	const { store, actions } = useContext(Context);
 
+	const deleteFav = indexDelete => {
+		let borrar = listFav.filter((fav, index) => index != indexDelete);
+		setListFav(borrar);
+	};
+
+	const [detalle, setDetalle] = useState();
 	const getDetalle = async () => {
 		try {
 			const response = await fetch(props.url); // espera la respuesta del servidor.
@@ -56,15 +61,12 @@ const Card = props => {
 						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
 							Learn More
 						</Link>
-						{/* <a
-							href="#"
-							onClick={() => actions.addFavorites(props.name)}
-							className="ml-auto btn btn-warning">
+						<button className="ml-auto btn btn-warning" onClick={() => actions.addFavorite(props.name)}>
+							<i className="far fa-heart" />
+						</button>
+						{/* <a href="#" className="ml-auto btn btn-warning">
 							<i className="far fa-heart" />
 						</a> */}
-						<a href="#" className="ml-auto btn btn-warning">
-							<i className="far fa-heart" />
-						</a>
 					</div>
 				</div>
 			</div>
