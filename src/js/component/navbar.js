@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/navbar.scss";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -10,8 +11,8 @@ export const Navbar = () => {
 				<nav className="px-0 navbar navbar-light">
 					<Link to="/">
 						<img
-							src="https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"
-							width="40%"
+							className="logo"
+							src="https://1000marcas.net/wp-content/uploads/2019/12/Star-Wars-emblema.jpg"
 						/>
 					</Link>
 
@@ -20,10 +21,11 @@ export const Navbar = () => {
 						<div className="btn-group">
 							<button
 								type="button"
-								className="btn btn-secondary dropdown-toggle"
+								className="btn btn-primary dropdown-toggle"
 								data-toggle="dropdown"
 								data-display="static">
-								Favorites <span className="badge bg-warning text-dark">{store.favorites.length} </span>
+								Favorites{" "}
+								<span className="badge bg-secondary text-white">{store.favorites.length} </span>
 							</button>
 							<div className="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 								{store.favorites.length == 0 && (

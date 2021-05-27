@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const url = "https://www.swapi.tech/api/";
-const randomPic = Math.floor(Math.random() * 1000);
-const urlPic = "https://picsum.photos/600/400?random=" + randomPic;
+
+const urlPic = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5LF3hgG72sOVV5nATLmjWyJDo2k_E8Sk7zQ&usqp=CAU";
 
 export const SingleCharacter = props => {
 	const { store, actions } = useContext(Context);
@@ -67,16 +67,6 @@ export const SingleCharacter = props => {
 				<div className="col">
 					<h3>Eye Color:</h3>
 					<p>{detalle.eye_color}</p>
-				</div>
-			</div>
-			<div className="row">
-				<div className="col">
-					<Link to="/">
-						<span className="btn btn-primary btn-lg" href="#" role="button">
-							{" "}
-							Back home{" "}
-						</span>
-					</Link>
 				</div>
 			</div>
 		</div>
@@ -151,16 +141,6 @@ export const SinglePlanet = props => {
 				<div className="col">
 					<h3>Diameter:</h3>
 					<p>{detalle.diameter}</p>
-				</div>
-			</div>
-			<div className="row">
-				<div className="col">
-					<Link to="/">
-						<span className="btn btn-primary btn-lg" href="#" role="button">
-							{" "}
-							Back home{" "}
-						</span>
-					</Link>
 				</div>
 			</div>
 		</div>

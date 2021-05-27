@@ -48,8 +48,7 @@ const Card = props => {
 		);
 	};
 
-	const randomPic = Math.floor(Math.random() * 1000);
-	const url = "https://picsum.photos/600/400?random=" + randomPic;
+	const url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5LF3hgG72sOVV5nATLmjWyJDo2k_E8Sk7zQ&usqp=CAU";
 	return (
 		<div>
 			<div className="card m-2">
@@ -58,10 +57,12 @@ const Card = props => {
 					<h5 className="card-title">{props.name}</h5>
 					{cardContents()}
 					<div className="d-flex">
-						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-primary">
+						<Link to={"/single" + props.cardType + "/" + props.uid} className="btn btn-outline-primary">
 							Learn More
 						</Link>
-						<button className="ml-auto btn btn-warning" onClick={() => actions.addFavorite(props.name)}>
+						<button
+							className="ml-auto btn btn-outline-warning"
+							onClick={() => actions.addFavorite(props.name)}>
 							<i className="far fa-heart" />
 						</button>
 						{/* <a href="#" className="ml-auto btn btn-warning">
